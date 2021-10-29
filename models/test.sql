@@ -3,9 +3,10 @@
 }}
     select
         Month,
-        proxytitle,        
+        proxydept,        
         count(distinct(USER)) as number_of_users,
         count(USER) as frequency
-    from user.public.final
+    from user.public.final1
     where AppName like '%JO%'
-    group by Month,proxytitle
+    group by proxydept, Month
+    order by number_of_users desc,Month asc
